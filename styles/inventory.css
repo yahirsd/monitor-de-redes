@@ -11,6 +11,7 @@ body {
     background-color: #333; 
 }
 
+
 .navbar a {
     float: left;
     display: block;
@@ -33,7 +34,12 @@ body {
 .table-container {
     margin: 30px; /* Add margin to the container */
   }
-
+.borders-table-align{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 8px;
+  text-align: center;
+}
 .table-container table {
     width: 100%;
     border-collapse: collapse;
