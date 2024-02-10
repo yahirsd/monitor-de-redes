@@ -1,0 +1,14 @@
+.cajita{
+    border: 0.3em solid;
+}
+
+.items{
+    border: 0.2em solid;
+    background-color: beige;
+    padding: 0.2em;
+    margin: 4px;
+}
+
+.items:hover{
+    background-color: azure;
+}

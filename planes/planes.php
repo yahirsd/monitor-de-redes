@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/planes.css">
   <title>Planes</title>
 </head>
 
@@ -23,9 +24,15 @@
     <h1>planes de prevencion</h1>
     <!-- Contenido de la página -->
     <div class="cajita">
-      <div id="item1" class="items">
-        <img src="" alt="">
-      </div>
+      <?php
+      for ($num1 = 1; $num1 <= 200; $num1++) {
+        echo '
+        <div id="item1" class="items">
+         <h2>'.$num1.'item</h2>
+       </div>';
+      }
+      ?>
+
     </div>
   </div>
 </body>
