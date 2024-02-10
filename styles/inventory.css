@@ -19,9 +19,15 @@ body {
     padding: 14px 16px;
     text-decoration: none;
 }
+.lowSpace{
+  width: 5%;
+}
 
 .navbar a:hover {
     background-color: #ddd; /* Background*/
+}
+.table-container a:hover{
+  background-color: aqua;
 }
 
 .table-container {
