@@ -1,0 +1,37 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #121813;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Centra los elementos */
+}
+
+nav ul li {
+  display: inline-block; /* Muestra los elementos en línea horizontal */
+}
+
+nav ul li a {
+  display: block;
+  color: #f3eae8;
+  text-decoration: none;
+  padding: 15px 20px;
+}
+
+nav ul li a:hover {
+  background-color:#555;
+}
+
+
+.encabezado{
+    text-align: center;
+}
