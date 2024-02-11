@@ -3,10 +3,67 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+.encabezado{
+  text-align: center;
+  
+}
+
+.encabezado h1{
+   font-weight: 350;
+}
+
+.contenedor{
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+}
+/* Estilos del formulario*/
+.contenedor .divFormulario{
+  width: 30%;
+  height: 250px;
+  margin: 15px 15px;
+  background-color: #5f6192;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}
+.contenedor .divFormulario h2{
+  margin-top: 10px;
+  font-weight: 200;
+  font-size: 2em;
+  color: #f3eae8;
+}
+.contenedor .divFormulario form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:end;
+  align-items: center;
+}
+
+.contenedor .divFormulario form input,
+.contenedor .divFormulario form button{
+  width: 60%;
+  padding: 10px 10px;
+  margin: 10px 10px;
+}
+
+/* encabezado NAV*/
 nav {
   background-color: #121813;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 nav ul {
@@ -29,9 +86,4 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color:#555;
-}
-
-
-.encabezado{
-    text-align: center;
 }
