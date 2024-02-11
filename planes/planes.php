@@ -16,7 +16,7 @@
       <li><a href="#Inventario">Inventario</a></li>
       <li><a href="#Prevención">Planes de Prevención</a></li>
       <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de Fallas</a></li>
-      <li><a href="#Configuraciones">Configuraciones</a></li>
+      <li><a href="#Configuraciones">Configuraciones</a></li>gd
     </ul>
   </nav>
 
