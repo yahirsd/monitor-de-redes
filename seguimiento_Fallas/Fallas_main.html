@@ -11,7 +11,7 @@
 <body>
 
     <header class="encabezado">
-
+        
         <nav>
             <ul>
                 <li><a href="#home">INICIO</a></li>
@@ -20,9 +20,31 @@
                 <li><a href="#report">Inventario</a></li>
             </ul>
         </nav>
-        <h1> Seguimiento de fallas </h1>
+        
+       <h1> Seguimiento de fallas </h1>
     </header>
 
+    <div class="contenedor">
+        <div class="divFormulario">
+            <h2> Formulario </h2>
+
+            <form action="#" id="formulario">
+                <input type="text" id="nombre" placeholder="Nombre de la falla">
+                <input type="text" id="descripcion" placeholder="Descripción de la falla">
+                <button type="submit" id="btnAgregar">Agregar</button>
+            </form>
+        </div>
+
+        <div class="divListado">
+            <h2> Lista de Fallas </h2>
+            <div class="div-fallas">
+
+            </div>
+        </div>
+    </div>
+    <script src="../seguimiento_Fallas/app.js">
+        
+    </script>
 </body>
 
 </html>

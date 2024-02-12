@@ -8,7 +8,7 @@ body {
 
 .navbar {
     overflow: hidden;
-    background-color: #333; 
+    background-color: #121813; 
 }
 
 
@@ -57,3 +57,29 @@ body {
   .table-container li {
     margin-bottom: 8px;
   }
+  .formContent form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.formContent label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formContent input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.formContent input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.formContent input[type="submit"]:hover {
+    background-color: #45a049;
+}
