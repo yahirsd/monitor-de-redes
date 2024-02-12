@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/inventory.css">
+    
     <title>Inventario Detallado</title>
     <style>
         body {
@@ -57,7 +58,7 @@
     <div class="title">
 
     </div>
-    <div class="table-container">
+    <div class="table-container2">
         <table>
             <thead>
                 <th class="borders-table-align">Nombre</th>
@@ -66,16 +67,19 @@
                 <th colspan="2" class="borders-table-align"></th>
             </thead>
             <tbody>
+              <form action="controller.php">
                 <tr>
-                    <td> N </td>
-                    <td> D </td>
-                    <td> C </td>
-                    <td colspan="2" class="lowSpace"> <a href="#"> <img src="icons/iconD.png" alt="delete"></a> 
-                        <a href="#"><img src="icons/iconE.png" alt="edit"></a> 
+                    <td> Nombre Prueba </td>
+                    <td> Lorem y quien sabe que cosa </td>
+                    <td> 5 </td>
+                    <td colspan="2" class="lowSpace">
+                      <input type="submit" class="input-submiter1" name="deletor"></input> 
+                      <input type="submit" class="input-submiter2" name="editor"></input> 
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <script src="crud/JS/confirm.js"></script>
 </body>
 </html>
