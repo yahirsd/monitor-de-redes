@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,27 +5,28 @@ body {
   box-sizing: border-box;
 }
 
-.encabezado{
+.encabezado {
   text-align: center;
-  
+
 }
 
-.encabezado h1{
-   font-weight: 350;
+.encabezado h1 {
+  font-weight: 350;
 }
 
-.contenedor{
+.contenedor {
   width: 100%;
   height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
 }
+
 /* Estilos del formulario*/
-.contenedor .divFormulario{
+.contenedor .divFormulario {
   width: 30%;
   height: 250px;
   margin: 15px 15px;
-  background-color: #5f6192;
+  background-color: #222943;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,26 +34,85 @@ body {
   border-radius: 10px;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 }
-.contenedor .divFormulario h2{
+
+.contenedor .divFormulario h2 {
   margin-top: 10px;
   font-weight: 200;
   font-size: 2em;
   color: #f3eae8;
 }
+
 .contenedor .divFormulario form {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content:end;
+  justify-content: end;
   align-items: center;
 }
 
 .contenedor .divFormulario form input,
-.contenedor .divFormulario form button{
+.contenedor .divFormulario form button {
   width: 60%;
   padding: 10px 10px;
   margin: 10px 10px;
+}
+
+/*Estilo de la lista*/
+.contenedor .divListado {
+  width: 55%;
+  height: calc(100% - 50px);
+  margin: 15px 15px;
+  background-color: #222943;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor .divListado h2 {
+  margin-top: 10px;
+  font-weight: 200;
+  font-size: 2em;
+  color: #f3eae8;
+}
+
+.contenedor .divListado .div-fallas {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  padding: 0 30px;
+}
+
+.contenedor .divListado .div-fallas p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #ddd;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  margin: 0 5px;
+  color: white;
+  border-radius: 50px;
+}
+
+.btn-editar {
+  background-color: green;
+}
+
+.btn-eliminar {
+  background-color: red;
 }
 
 /* encabezado NAV*/
@@ -70,11 +129,13 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: center; /* Centra los elementos */
+  text-align: center;
+  /* Centra los elementos */
 }
 
 nav ul li {
-  display: inline-block; /* Muestra los elementos en línea horizontal */
+  display: inline-block;
+  /* Muestra los elementos en línea horizontal */
 }
 
 nav ul li a {
@@ -85,5 +146,4 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color:#555;
-}
+  background-color:#555;}
