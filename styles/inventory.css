@@ -27,13 +27,31 @@ body {
 .navbar a:hover {
     background-color: #ddd; /* Background*/
 }
-.table-container a:hover{
+.table-container input:hover{
   background-color: aqua;
+}
+.table-container2 input:hover{
+  background-color: aqua;
+}
+.input-submiter1{
+  text-indent: -99999px;
+  background: url("../Redes-Inventario/icons/iconD.png");
+  border:none;
+  cursor:pointer;
+}
+.input-submiter2{
+  text-indent: -99999px;
+  background: url("../Redes-Inventario/icons/iconE.png");
+  border:none;
+  cursor:pointer;
 }
 
 .table-container {
     margin: 30px; /* Add margin to the container */
-  }
+}
+.table-container2 {
+  margin: 30px; /* Add margin to the container */
+}
 .borders-table-align{
   border: 1px solid black;
   border-collapse: collapse;
@@ -43,8 +61,13 @@ body {
 .table-container table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
+    background-color: burlywood;
+}
+.table-container2 table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: burlywood;
+} 
 .table-container td {
     border: 1px solid #0f0e0e;
     padding: 8px;
@@ -57,6 +80,20 @@ body {
   .table-container li {
     margin-bottom: 8px;
   }
+
+  .table-container2 td {
+    border: 1px solid #0f0e0e;
+    padding: 8px;
+    text-align: left;
+  }
+  .table-container2 ol {
+    padding-left: 20px;
+    list-style-type: none;
+  }
+  .table-container2 li {
+    margin-bottom: 8px;
+  }
+
   .formContent form {
     max-width: 400px;
     margin: 20px auto;
