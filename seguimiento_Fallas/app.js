@@ -25,7 +25,7 @@ function validarFormulario(e) {
     }
 
     if (editando) {
-        //editarFalla();
+        editarFalla();
         editando = false;
 
     } else {
@@ -43,8 +43,15 @@ function agregarFalla() {
     mostrarFallas();
 
     formulario.reset();
+
+    limpiarObjeto();
 }
 
+function limpiarObjeto(){
+    objFalla.id = '';
+    objFalla.nombre='';
+    objFalla.descripcion='';        
+}
 function mostrarFallas() {
 
     limpiarHTML();
@@ -58,13 +65,13 @@ function mostrarFallas() {
         parrafo.dataset.id = id;
 
         const editarBoton = document.createElement('button');
-        // editarBoton.onclick = () => cargarFalla(falla);
+        editarBoton.onclick = () => cargarFalla(falla);
         editarBoton.textContent = 'Editar';
         editarBoton.classList.add('btn', 'btn-editar');
         parrafo.append(editarBoton);
 
         const eliminarBoton = document.createElement('button');
-        // eliminarBoton.onclick = () => eliminarFalla(id);
+        eliminarBoton.onclick = () => eliminarFalla(id);
         eliminarBoton.textContent = 'Eliminar';
         eliminarBoton.classList.add('btn', 'btn-eliminar');
         parrafo.append(eliminarBoton);
@@ -77,6 +84,49 @@ function mostrarFallas() {
 
     });
 }
+
+function cargarFalla(falla){
+    const{id,nombre,descripcion} = falla;
+
+    nombreInput.value = nombre;
+    descInput.value = descripcion;
+
+    objFalla.id = id;
+
+    formulario.querySelector('button[type="submit"]').textContent = 'Actualizar';
+
+    editando = true;
+}
+
+function editarFalla(){
+    objFalla.nombre = nombreInput.value;
+    objFalla.descripcion = descInput.value;
+
+    listaFallas.map( falla => {
+        if(falla.id === objFalla.id){
+            falla.id = objFalla.id;
+            falla.nombre = objFalla.nombre;
+            falla.descripcion = objFalla.descripcion;
+        }
+    });
+
+    limpiarHTML();
+    mostrarFallas();
+
+    formulario.reset();
+
+    formulario.querySelector('button[type="submit"]').textContent = 'Agregar';
+
+    editando = false;
+}
+
+function eliminarFalla(id){
+    listaFallas = listaFallas.filter(falla => falla.id !== id);
+
+    limpiarHTML();
+    mostrarFallas();
+}
+
 function limpiarHTML() {
     const divFallas = document.querySelector('.div-fallas');
     while (divFallas.firstChild) {
