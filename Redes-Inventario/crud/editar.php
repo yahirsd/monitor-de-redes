@@ -54,7 +54,7 @@
         </ul>
     </nav>
     <div class="formContent">
-        <form action="menu.php" method="post" >
+        <form action="menu.php" method="post">
             <label for="name">Nombre del producto:</label>
             <input type="text" id="name" name="name" required>
         
@@ -63,8 +63,10 @@
         
             <label for="cant">Cantidad:</label>
             <input type="number" id="cant" name="cant" required>
-        
-            <input type="submit" name='add' value="Dar de alta al producto">
+            <?php
+              echo "<input type='hidden' name='id' id='id' value='$id'>";
+            ?>
+            <input type="submit" name='edit' value="Guardar Cambios?">
         </form>
     </div>
 </body>
