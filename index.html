@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenido al Adminitrador de Red</title>
-
-  <!--Link de referencia del ccs para los menus-->
-  <link rel="stylesheet" href="/styles/estiloNavbar.css">
-  
+  <link rel="stylesheet" href="/styles/Index.css">
+  <link rel="stylesheet" href="/styles/NavbarGeneral.css">
 </head>
-<body>  
+
+<body>
 
   <!--Seccion del los diferentes menus-->
   <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="/Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
-                <li><a href="/Redes-Inventario/inventarioG.html">Inventario</a></li>
-                <li><a href="/planes/planes.php">Planes de Prevención</a></li>
-                <li><a href="/seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
-                <li><a href="">Configuraciones</a></li>
-                
-            </ul>
-        </nav>
-  <!--hasta aqui acaba-->  
+    <ul>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="/Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
+      <li><a href="/Redes-Inventario/inventarioG.html">Inventario</a></li>
+      <li><a href="/planes/planes.php">Planes de Prevención</a></li>
+      <li><a href="/seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
+      <li><a href="">Configuraciones</a></li>
 
+    </ul>
+  </nav>
 
-  <div class="content" Style="background-color:#17172a">
+  <div class="content" style="background-color:#17172a">
     <h1 style="text-align: center; color:#ffffff;">Bienvenido al Adminitrador de Red</h1>
     <h3 style="text-align: center;color:gainsboro">Dedicado a mantener el control de la red</h3>
-    <!-- Contenido de la página -->
   </div>
-</body>
+
+  <div class="content">
+
+    <div class="gallery">
+      <img class="mySlides" src="/ImgIndex/635c333a664d9ef603071e89_network-security.webp" style="display: block;">
+      <img class="mySlides" src="/ImgIndex/queesunaredinformaticayparaquesirve.jpg" style="display: none;">
+      <img class="mySlides" src="/ImgIndex/Redes-de-computadoras.jpg" style="display: none;">
+      
+      <!-- Agrega más imágenes con la misma clase y estilo display none -->
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="cuadro">
+      <div class="titulo" href="">Localizar Dispositivos</div>
+      <div class="descripcion">En esta pagina se encuentran <br> los dispositivos de la red junto <br>con la ubicación real </div>
+    </div>
+
+    <div class="cuadro">
+      <div class="titulo">Inventario</div>
+      <div class="descripcion">Se encuentra la lista oficial de <br> dispositivos de la infraestructura <br> de la red</div>
+    </div>
+
+    <div class="cuadro">
+      <div class="titulo">Planes de Prevención</div>
+      <div class="descripcion">Texto pendiente</div>
+    </div>
+
+    <div class="cuadro">
+      <div class="titulo">Seguimiento de Fallas</div>
+      <div class="descripcion">Se registran todas las fallas <br> que se hallan dado en la red, <br>se tiene el registro de fallas</div>
+    </div>
+
+    <div class="cuadro">
+      <div class="titulo">Configuraciones</div>
+      <div class="descripcion">Se guardan las configuraciones de la red para tener un mejor control de los registros </div>
+    </div>
+  </div>
   
+  <script src="/Index.js"></script>
+
+</body>
+
 </html>
-
-

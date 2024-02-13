@@ -1,0 +1,47 @@
+.gallery {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+  
+  .contenedor-cuadros {
+    display:inline-flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cuadro {
+    width: calc(20% - 20px); /* Ajustamos el ancho de cada cuadro */
+    background-color: #ffffff;
+    padding: 1px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+
+  .descripcion {
+    font-size: 14px;
+    color: #666666;
+  }
