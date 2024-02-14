@@ -234,6 +234,16 @@ tr:nth-child(even){
   display: block;
 }
 
+#button-add-file {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  width: fit-content;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 550px) {
 .table-container {
   margin-left: 0;
