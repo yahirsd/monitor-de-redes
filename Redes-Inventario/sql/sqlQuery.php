@@ -38,17 +38,17 @@
             if($result && $result->num_rows>0){
                 while($row=$result->fetch_assoc()){
                     echo "<form action='crud/menu.php' method='post'>";
-                        echo "<tr>";
-                            echo "<td>".$row['nombre']."</td>";
-                            echo "<td>".$row['descripcion']."</td>";
-                            echo "<td>".$row['cantidad']."</td>";
-                            echo "<td colspan='2' class='lowSpace'>";
-                                echo "<input type='submit' class='input-submiter1' name='deletor'></input> ";
-                                echo "<input type='submit' class='input-submiter2' name='editor'></input> ";
-                            echo "</td>";
-                        echo "</tr>";
-                        echo "<input type='hidden' name='id' value='".$row['id_inventario']."'></input";
-                    echo "</form>";
+                    echo "<tr>";
+                        echo "<td>".$row['nombre']."</td>";
+                        echo "<td>".$row['descripcion']."</td>";
+                        echo "<td>".$row['cantidad']."</td>";
+                        echo "<td colspan='2' class='lowSpace'>";
+                            echo "<input type='submit' class='input-submiter1' name='deletor'></input> ";
+                            echo "<input type='submit' class='input-submiter2' name='editor'></input> ";
+                            echo "<input type='hidden' name='id' value='".$row['id_inventario']."'></input>";
+                        echo "</td>";
+                    echo "</tr>";
+                echo "</form>";
                 }
             }
         }
