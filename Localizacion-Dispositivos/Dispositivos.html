@@ -2,45 +2,61 @@
 <html lang="es">
 
 <head>
-<link rel="stylesheet" href="../styles/fallasEstilo.css">
-<link rel="stylesheet" href="../styles/estiloNavbar.css">
-    
+    <link rel="stylesheet" href="../styles/estiloNavbar.css">
+    <link rel="stylesheet" href="../styles/DispositivosEstilo.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fallas</title>
+    <title>Localización de Dispositivos</title>
 </head>
 
 <body>
 
     <header class="encabezado">
-        
+
         <nav>
             <ul>
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#localizar">Localizar Dispositivos</a></li>
-                <li><a href="#inventario">Inventario</a></li>
-                <li><a href="#planes">Planes de Prevención</a></li>
-                <li><a href="">Seguimiento de fallas</a></li>
+                <li><a href="../Redes-Inventario/inventarioG.html">Inventario</a></li>
+                <li><a href="../planes/planes.php">Planes de Prevención</a></li>
+                <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
                 <li><a href="">Configuraciones</a></li>
-                
+
             </ul>
         </nav>
-        
-       <h1> Dispositivos </h1>
-    </header>
 
+        <h1> Dispositivos </h1>
+    </header>
+<DIV class="contenedor">
     <div class="contenedor">
-        
+
 
         <div class="divListado">
             <h2> Localicacion de Dispositivos </h2>
-            <div class="div-fallas">
-
-            </div>
+            <div id="divListado"></div>
         </div>
     </div>
-    <script src="../seguimiento_Fallas/app.js">
-        
+
+    <div class="formulario">
+        <h1>Formulario</h1>
+        <form id="data-form">
+            <label for="device">Dispositivo:</label>
+            <input type="text" id="device" name="device" required><br><br>
+
+            <label for="ip">Dirección IP:</label>
+            <input type="text" id="ip" name="ip" required><br><br>
+
+            <label for="location">Ubicación:</label>
+            <input type="text" id="location" name="location" required><br><br>
+
+            <button type="button" onclick="addData()">Agregar</button>
+        </form>
+    </div>
+</div>
+</DIV>
+    <script src="/Localizacion-Dispositivos/App.js">
+
     </script>
 </body>
 

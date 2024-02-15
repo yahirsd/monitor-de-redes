@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .encabezado {
+    text-align: center;
+  }
+  
+  .encabezado h1 {
+    font-weight: 350;
+  }
+  
+  .contenedor {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos uniformemente a lo largo del contenedor */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  }
+  
+  /* Estilos del formulario */
+  .formulario {
+    align-items: flex-start;
+    width: 40%; /* Ancho del formulario */
+    margin: 50px 50px;
+    background-color: #222943;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+
+  }
+  .formulario h1 {
+    margin-top: 10px;
+    font-weight: 200;
+    font-size: 1.5em; /* Reducimos el tamaño del encabezado */
+    color: #f3eae8;
+  }
+  
+  .formulario form {
+    width: 80%; /* Reducimos el ancho del formulario */
+  }
+  
+  .formulario form input,
+  .formulario form button {
+    width: 100%; /* Hacemos que los elementos ocupen todo el ancho disponible */
+    padding: 10px 10px;
+    margin: 10px 0; /* Ajustamos los márgenes */
+  }
+  
+  /* Estilo del listado */
+  .contenedor .divListado {
+    width: 65%; /* Ajustamos el ancho del listado */
+    height: calc(100% - 50px);
+    margin: 15px 15px;
+    background-color: #222943;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .contenedor .divListado h2 {
+    margin-top: 10px;
+    font-weight: 200;
+    font-size: 2em;
+    color: #f3eae8;
+  }
+  
+  .contenedor .divListado .div-fallas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 0 30px;
+  }
+  
+  .contenedor .divListado .div-fallas p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #ddd;
+  }
+  
+  hr {
+    width: 100%;
+    height: 1px;
+  }
+  
+  .btn {
+    padding: 5px 10px;
+    border: none;
+    margin: 0 5px;
+    color: white;
+    border-radius: 50px;
+  }
+  
+  .btn-editar {
+    background-color: green;
+  }
+  
+  .btn-eliminar {
+    background-color: red;
+  }
+  
+  /* Encabezado NAV */
+  nav {
+    background-color: #121813;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centra los elementos */
+  }
+  
+  nav ul li {
+    display: inline-block; /* Muestra los elementos en línea horizontal */
+  }
+  
+  nav ul li a {
+    display: block;
+    color: #f3eae8;
+    text-decoration: none;
+    padding: 15px 20px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+  
