@@ -25,6 +25,7 @@ RESET STYLES
   background-color: transparent;
   border-radius: 0;
   border: none;
+  appearance: none;
 
   -webkit-appearance: none;
   -moz-appearance: none;
