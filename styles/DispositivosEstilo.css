@@ -40,6 +40,7 @@ body {
   
   .formulario form {
     width: 80%; /* Reducimos el ancho del formulario */
+    margin-left: 5%;
   }
   
   .formulario form input,
@@ -51,7 +52,7 @@ body {
   
   /* Estilo del listado */
   .contenedor .divListado {
-    width: 65%; /* Ajustamos el ancho del listado */
+    width: 100%; /* Ajustamos el ancho del listado */
     height: calc(100% - 50px);
     margin: 15px 15px;
     background-color: #222943;
@@ -137,4 +138,3 @@ body {
   nav ul li a:hover {
     background-color: #555;
   }
-  
