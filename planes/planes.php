@@ -10,61 +10,99 @@
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="#network">Localizar Dispositivos</a></li>
-      <li><a href="../Redes-inventarios/inventarioG.html">Inventario</a></li>
-      <li><a href="#Prevención">Planes de Prevención</a></li>
-      <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de Fallas</a></li>
-      <li><a href="#Configuraciones">Configuraciones</a></li>gd
-    </ul>
-  </nav>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#network">Localizar Dispositivos</a></li>
+        <li><a href="../Redes-inventarios/inventarioG.html">Inventario</a></li>
+        <li><a href="#Prevención">Planes de Prevención</a></li>
+        <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de Fallas</a></li>
+        <li><a href="#Configuraciones">Configuraciones</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="content">
-    <h1>planes de prevencion</h1>
-    <h1>Buscar en el contenido de una tabla</h1>
-    <form>
-      Texto a buscar <input id="searchTerm" type="text" onkeyup="doSearch()" />
-    </form>
-    <table id="datos">
-      <tr>
-        <th>id</th>
-        <th>Nombre</th>
-      </tr>
-       <tr>
-        <td>1</td>
-        <td>Juan</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Jose</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Luis</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Luisa</td>
-      </tr>
-      <tr class='noSearch hide'>
-        <td colspan="5"></td>
-      </tr>
-    </table>
+  <main class="container">
 
-    <!-- Contenido de la página -->
-    <div class="cajita">
-      <?php
-      for ($num1 = 1; $num1 <= 200; $num1++) {
-        echo '
-        <div id="item1" class="items">
-         <h2>' . $num1 . 'item</h2>
-       </div>';
-      }
-      ?>
+    <aside class="aside">
+      <form class="form">
+        <legend class=form__legend>Agregar un nuevo registro</legend>
+        <div class="field">
+          <label for="input-name" class="ha-screen-reader">Nombre</label>
+          <input id="input-name" class="field__input" placeholder="Archivo Falla">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Nombre</span>
+          </span>
+        </div>
 
-    </div>
-  </div>
+        <div class="field">
+          <label for="input-description" class="ha-screen-reader">Descripcion</label>
+          <input id="input-description" class="field__input" placeholder="Falla ejemplo">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Descripcion</span>
+          </span>
+        </div>
+
+        <div>
+          <label for="input-file">Archivo</label>
+          <input type="file" id="input-file" name="file" />
+        </div>
+        <button type="submit" id="button-add-file">Agregar</button>
+      </form>
+
+    </aside>
+
+    <section class="table-container">
+
+      <div class="field">
+        <label for="input-search" class="ha-screen-reader">Buscar</label>
+        <input id="input-search" class="field__input" placeholder="Busqueda por: id, nombre o fecha" onkeyup="search()">
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Buscar</span>
+        </span>
+      </div>
+
+
+      <table class="table">
+        <thead class="table__head">
+          <tr class=table__row>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+
+        <tbody id="table-body" class="table__body">
+          <tr class=table__row>
+            <th>1</th>
+            <td>Archivo</td>
+            <td>Este es un ejemplo de una escripcion</td>
+            <td>20/20/20</td>
+          </tr>
+
+          <tr class=table__row>
+            <th>1</th>
+            <td>Archivo</td>
+            <td>
+              Este es un ejemplo de una escripcion, texto aleatorio para ver que la table si
+              colapse cuando tiene que colapsar y que no desborda el texto
+            </td>
+            <td>20/20/20</td>
+          </tr>
+
+          <tr class=table__row>
+            <th>1</th>
+            <td>Archivo</td>
+            <td>Este es un ejemplo de una escripcion</td>
+            <td>20/20/20</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+  </main>
+
 </body>
 
 <script src="busqueda.js"></script>
