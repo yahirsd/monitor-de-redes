@@ -20,6 +20,18 @@
             }
             return 0;
         }
+        public function modify($POST){
+            $nombre=$POST['name'];
+            $desc=$POST['desc'];
+            $canti=$POST['cant'];
+            $id=$POST['id'];
+            $query="UPDATE inventario SET nombre='$nombre',descripcion='$desc',cantidad='$canti' WHERE id_inventario='$id'";
+            $result=$this->conn->query($query);
+            if($result){
+                return 1;
+            }
+            return 0;
+        }
         public function getList(){
             $query="SELECT * FROM inventario";
             $result=$this->conn->query($query);
@@ -32,9 +44,32 @@
                             echo "<td>".$row['cantidad']."</td>";
                             echo "<td colspan='2' class='lowSpace'>";
                                 echo "<input type='submit' class='input-submiter1' name='deletor'></input> ";
-                                echo "<input type='submit' class='input-submiter2' name='edit'></input> ";
+                                echo "<input type='submit' class='input-submiter2' name='editor'></input> ";
                             echo "</td>";
                         echo "</tr>";
+                        echo "<input type='hidden' name='id' value='".$row['id_inventario']."'></input";
+                    echo "</form>";
+                }
+            }
+        }
+        public function getEdit($cond){
+            $query="SELECT * FROM inventario WHERE id_inventario='$cond'";
+            $result=$this->conn->query($query);
+            if($result && $result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    $name=$row['nombre'];
+                    $desc=$row['descripcion'];
+                    $cant=$row['cantidad'];
+                    $id=$row['id_inventario'];
+                    echo "<form action='menu.php' method='post'>";
+                        echo"<label for='name'>Nombre del producto:</label>
+                        <input type='text' id='name' name='name' value='$name' required>";
+                        echo"<label for='desc'>Nombre del producto:</label>
+                        <input type='text' id='desc' name='desc' value='$desc' required>";
+                        echo"<label for='cant'>Nombre del producto:</label>
+                        <input type='text' id='cant' name='cant' value='$cant' required>";
+                        echo "<input type='hidden' name='id' id='id' value='$id'>";
+                        echo "<input type='submit' name='edit' value='Guardar Cambios?''>";
                     echo "</form>";
                 }
             }

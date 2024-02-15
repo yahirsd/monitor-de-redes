@@ -54,20 +54,11 @@
         </ul>
     </nav>
     <div class="formContent">
-        <form action="menu.php" method="post">
-            <label for="name">Nombre del producto:</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="desc">Descripción:</label>
-            <input type="desc" id="desc" name="desc" required>
-        
-            <label for="cant">Cantidad:</label>
-            <input type="number" id="cant" name="cant" required>
-            <?php
-              echo "<input type='hidden' name='id' id='id' value='$id'>";
-            ?>
-            <input type="submit" name='edit' value="Guardar Cambios?">
-        </form>
+        <?php
+          include_once("../sql/sqlQuery.php");
+          $op=new SQLModel();
+          $op->getEdit($id);
+        ?>
     </div>
 </body>
 </html>
