@@ -16,7 +16,7 @@ const btnAgrgar = document.querySelector("#btnAgregar");
 formulario.addEventListener('submit', validarFormulario);
 
 function validarFormulario(e) {
-    
+
     e.preventDefault();
 
     if (nombreInput.value === '' || descInput.value === '') {
@@ -37,20 +37,35 @@ function validarFormulario(e) {
     }
 }
 
-function agregarFalla() {
-    listaFallas.push({ ...objFalla })
+function guardarLocalStorage(listaFallas) {
+    localStorage.setItem('fallas', JSON.stringify(listaFallas))
+}
 
-    mostrarFallas();
+function obtenerLocalStorage() {
+    if (localStorage.getItem('fallas') !== null) {
+
+        listaFallas = JSON.parse(localStorage.getItem('fallas'));
+        mostrarFallas();
+    } else {
+        alert("no hay datos");
+    }
+}
+
+function agregarFalla() {
+    listaFallas.push({ ...objFalla });
+
+    guardarLocalStorage(listaFallas);
+    obtenerLocalStorage();
 
     formulario.reset();
 
     limpiarObjeto();
 }
 
-function limpiarObjeto(){
+function limpiarObjeto() {
     objFalla.id = '';
-    objFalla.nombre='';
-    objFalla.descripcion='';        
+    objFalla.nombre = '';
+    objFalla.descripcion = '';
 }
 function mostrarFallas() {
 
@@ -85,8 +100,8 @@ function mostrarFallas() {
     });
 }
 
-function cargarFalla(falla){
-    const{id,nombre,descripcion} = falla;
+function cargarFalla(falla) {
+    const { id, nombre, descripcion } = falla;
 
     nombreInput.value = nombre;
     descInput.value = descripcion;
@@ -98,20 +113,22 @@ function cargarFalla(falla){
     editando = true;
 }
 
-function editarFalla(){
+function editarFalla() {
     objFalla.nombre = nombreInput.value;
     objFalla.descripcion = descInput.value;
 
-    listaFallas.map( falla => {
-        if(falla.id === objFalla.id){
+    listaFallas.map(falla => {
+        if (falla.id === objFalla.id) {
             falla.id = objFalla.id;
             falla.nombre = objFalla.nombre;
             falla.descripcion = objFalla.descripcion;
         }
     });
 
-    limpiarHTML();
-    mostrarFallas();
+    //  limpiarHTML();
+    //mostrarFallas();
+    guardarLocalStorage(listaFallas);
+    obtenerLocalStorage();
 
     formulario.reset();
 
@@ -120,11 +137,13 @@ function editarFalla(){
     editando = false;
 }
 
-function eliminarFalla(id){
+function eliminarFalla(id) {
     listaFallas = listaFallas.filter(falla => falla.id !== id);
+    guardarLocalStorage(listaFallas);
+    obtenerLocalStorage();
 
-    limpiarHTML();
-    mostrarFallas();
+    //limpiarHTML();
+    //mostrarFallas();
 }
 
 function limpiarHTML() {
@@ -133,3 +152,9 @@ function limpiarHTML() {
         divFallas.removeChild(divFallas.firstChild);
     }
 }
+
+function isLocalStorageEmpty() {
+    return Object.keys(localStorage).length === 0;
+}
+
+obtenerLocalStorage()
