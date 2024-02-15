@@ -16,8 +16,8 @@
 
         <nav>
             <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#localizar">Localizar Dispositivos</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="">Localizar Dispositivos</a></li>
                 <li><a href="../Redes-Inventario/inventarioG.html">Inventario</a></li>
                 <li><a href="../planes/planes.php">Planes de Prevención</a></li>
                 <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
@@ -41,14 +41,10 @@
     <div class="formulario">
         <h1>Formulario</h1>
         <form id="data-form">
-            <label for="device">Dispositivo:</label>
-            <input type="text" id="device" name="device" required><br><br>
-
-            <label for="ip">Dirección IP:</label>
-            <input type="text" id="ip" name="ip" required><br><br>
-
-            <label for="location">Ubicación:</label>
-            <input type="text" id="location" name="location" required><br><br>
+            
+            <input type="text" id="device" name="device" placeholder="Dispositivo" required><br><br>
+            <input type="text" id="ip" name="ip" placeholder="Direccion IP" required><br><br>
+            <input type="text" id="location" name="location" placeholder="Ubicacón"  required><br><br>
 
             <button type="button" onclick="addData()">Agregar</button>
         </form>
