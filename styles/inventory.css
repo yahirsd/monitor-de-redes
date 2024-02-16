@@ -11,7 +11,40 @@ body {
     background-color: #121813; 
 }
 
+.styled-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #3498db; 
+  color: #3498db;
+  background-color: #fff; 
+  border-radius: 5px; 
+  transition: background-color 0.3s, color 0.3s;
+}
 
+.styled-button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+.styled-submit {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.styled-submit:hover {
+  background-color: #2980b9; 
+}
 .navbar a {
     float: left;
     display: block;

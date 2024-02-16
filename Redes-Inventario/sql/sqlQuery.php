@@ -32,6 +32,15 @@
             }
             return 0;
         }
+        public function delete($id){
+            $query="DELETE FROM inventario WHERE id_inventario='$id'";
+            $result=$this->conn->query($query);
+            if($result){
+                return 1;
+            }
+            return 0;
+        }
+
         public function getList(){
             $query="SELECT * FROM inventario";
             $result=$this->conn->query($query);

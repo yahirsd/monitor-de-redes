@@ -14,4 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id=$_POST['id'];
         include("editar.php");
     }
+    if(isset($_POST['deletor'])){
+        $id=$_POST['id'];
+        $result=$op->delete($id);
+        header("Location: ../inventarioD.php");
+    }
 }
