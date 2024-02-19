@@ -8,6 +8,15 @@ function addData() {
     var newRow = document.createElement("div");
     newRow.classList.add("grid-row");
 
+    var gridContainer = document.getElementById("divListado");
+    var newRow = document.createElement("div");
+    newRow.classList.add("grid-row");
+
+    gridContainer.appendChild(newRow);
+
+    var hr = document.createElement("hr");
+    newRow.appendChild(hr);
+
     // Crear elementos para cada celda en la fila
     var deviceCell = document.createElement("div");
     deviceCell.classList.add("grid-cell");
@@ -30,6 +39,13 @@ function addData() {
     editButton.classList.add("btn", "btn-editar");
     editButton.addEventListener("click", function() {
         // Aquí puedes implementar la lógica para editar el elemento
+        function editData(deviceElement) {
+            var deviceCell = deviceElement.querySelector(".device-cell");
+            var newName = prompt("Ingrese el nuevo nombre para el dispositivo:", deviceCell.textContent.replace("Dispositivo: ", ""));
+            if (newName !== null && newName.trim() !== "") {
+                deviceCell.textContent = "Dispositivo: " + newName;
+            }
+        }
         alert("Editar elemento: " + device);
     });
 
@@ -38,6 +54,13 @@ function addData() {
     deleteButton.classList.add("btn", "btn-eliminar");
     deleteButton.addEventListener("click", function() {
         // Aquí puedes implementar la lógica para borrar el elemento
+        function deleteData(deviceElement) {
+            var confirmDelete = confirm("¿Estás seguro que deseas borrar este dispositivo?");
+            if (confirmDelete) {
+                deviceElement.remove();
+            }
+        }
+        
         alert("Borrar elemento: " + device);
     });
 
@@ -54,3 +77,7 @@ function addData() {
     // Limpiar el formulario después de agregar los datos
     document.getElementById("data-form").reset();
 }
+// Función para editar un elemento
+
+
+// Función para borrar un elemento

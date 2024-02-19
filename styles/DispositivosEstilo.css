@@ -98,6 +98,18 @@ body {
     color: white;
     border-radius: 50px;
   }
+
+  .btn-agregar {
+    padding: 10px 20px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 25px; /* Redondeamos los bordes */
+    background-color: #4CAF50; /* Color verde más formal */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
   
   .btn-editar {
     background-color: green;
@@ -138,3 +150,9 @@ body {
   nav ul li a:hover {
     background-color: #555;
   }
+
+  .grid-row hr {
+    border: none;
+    height: 2px; /* Ajusta el grosor de la línea */
+    background-color: #ccc; /* Color de la línea */
+}
