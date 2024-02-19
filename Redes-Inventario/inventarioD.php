@@ -64,7 +64,11 @@
                 <th class="borders-table-align">Nombre</th>
                 <th class="borders-table-align">Descripcion</th>
                 <th class="borders-table-align">Cantidad Disp.</th>
-                <th colspan="2" class="borders-table-align"><input type='submit' value='Agregar' class='styled-submit'></input></th>
+                <th colspan="2" class="borders-table-align">
+                  <form action="crud/agregar.html" method="post">
+                  <input type='submit' name='add' value='Agregar' class='styled-submit'></input>
+                  </form>
+                </th>
             </thead>
             <tbody>
               <?php
