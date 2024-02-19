@@ -245,6 +245,10 @@ tr:nth-child(even){
   margin-right: auto;
 }
 
+h1{
+  text-align: center;
+}
+
 @media (max-width: 550px) {
 .table-container {
   margin-left: 0;

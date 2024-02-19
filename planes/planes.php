@@ -20,6 +20,7 @@
         <li><a href="#Configuraciones">Configuraciones</a></li>
       </ul>
     </nav>
+  <h1>Planes de prevencion</h1>
   </header>
 
   <main class="container">
