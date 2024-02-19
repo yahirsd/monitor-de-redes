@@ -99,7 +99,7 @@
                         echo"<label for='desc'>Nombre del producto:</label>
                         <input type='text' id='desc' name='desc' value='$desc' required>";
                         echo"<label for='cant'>Nombre del producto:</label>
-                        <input type='text' id='cant' name='cant' value='$cant' required>";
+                        <input type='number' id='cant' name='cant' value='$cant' required>";
                         echo "<input type='hidden' name='id' id='id' value='$id'>";
                         echo "<input type='submit' name='edit' value='Guardar Cambios?''>";
                     echo "</form>";

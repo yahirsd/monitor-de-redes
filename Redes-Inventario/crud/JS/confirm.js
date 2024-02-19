@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var deleteButton = document.querySelector('input[type="submit"][name="deletor"]');
+    var deleteButton = document.querySelectorAll('input[type="submit"][name="deletor"]');
     
-    deleteButton.addEventListener("click", function(event) {
-        if (!confirm("Desea dar de baja este producto?")) {
-            event.preventDefault();
-        }
+    deleteButton.forEach(deleteB => {
+        deleteB.addEventListener("click", function(event) {
+            if (!confirm("Desea dar de baja este producto?")) {
+                event.preventDefault();
+            }
+        });
     });
 });
