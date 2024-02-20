@@ -10,6 +10,8 @@
 </head>
 
 <body>
+  </div>
+  </div>
   <header>
     <nav>
       <ul>
@@ -20,7 +22,7 @@
         <li><a href="#Configuraciones">Configuraciones</a></li>
       </ul>
     </nav>
-  <h1>Planes de prevencion</h1>
+    <h1>Planes de prevencion</h1>
   </header>
 
   <main class="container">
@@ -81,7 +83,13 @@
             <td>Archivo</td>
             <td>Este es un ejemplo de una escripcion</td>
             <td>20/20/20</td>
-            <td><a href="#">Eliminar</a></td>
+            <td><button id="openModalBtn">Eliminar</button>
+
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Estas seguro que deseas borrar el archivo</p>
+            </td>
           </tr>
 
           <tr class=table__row>
