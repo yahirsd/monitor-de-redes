@@ -66,6 +66,18 @@ body {
 .table-container2 input:hover{
   background-color: aqua;
 }
+.table-container input[type="number"]{
+  width: 200px;
+}
+.table-container input[type="text"]{
+  width: 200px;
+}
+.table-container input[type="number"]:hover{
+  background-color: #fff;
+}
+.table-container input[type="text"]:hover{
+  background-color: #fff;
+}
 .input-submiter1{
   text-indent: -99999px;
   background: url("../Redes-Inventario/icons/iconD.png");
@@ -114,9 +126,19 @@ body {
     padding-left: 20px;
     list-style-type: none;
   }
+  .list-look {
+    list-style-type: none;
+    list-style: none;
+  }
   .table-container li {
     margin-bottom: 8px;
   }
+.table-container label {
+    display: inline-block;
+    width: 100px; 
+    margin-right: 10px;
+}
+
 
   .table-container2 td {
     border: 1px solid #0f0e0e;
