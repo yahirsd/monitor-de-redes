@@ -2,57 +2,55 @@
 <html lang="es">
 
 <head>
-    <link rel="stylesheet" href="../styles/estiloNavbar.css">
     <link rel="stylesheet" href="../styles/DispositivosEstilo.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localización de Dispositivos</title>
 </head>
 
 <body>
-
+<!--cd-->
     <header class="encabezado">
-
+        
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="">Localizar Dispositivos</a></li>
-                <li><a href="../Redes-Inventario/inventarioG.html">Inventario</a></li>
-                <li><a href="../planes/planes.php">Planes de Prevención</a></li>
-                <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
-                <li><a href="">Configuraciones</a></li>
 
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Localizacion-Dispositivos/Dispositivos.html" >Localizar Dispositivos</a></li>
+                <li><a href="../Redes-Inventario/">Inventario</a></li>
+                <li><a href="../planes/">Planes de Prevención</a></li>
+                <li><a href="../seguimiento_Fallas/">Seguimiento de Fallas </a></li>
+                <li><a href="#report">Configuraciones</a></li>
             </ul>
         </nav>
-
-        <h1> Dispositivos </h1>
+        
+       <h1> Dispositivos </h1>
     </header>
-<DIV class="contenedor">
+
     <div class="contenedor">
 
 
         <div class="divListado">
-            <h2> Localicacion de Dispositivos </h2>
-            <div id="divListado"></div>
+            <h2> Localizacion de Dispositivos </h2>
+            <div class="div-fallas">
+
+            </div>
+        </div>
+
+        <div class="divFormulario">
+            <h2 style="color: aliceblue; margin:5%"> Formulario </h2>
+
+            <form action="../Localizacion-Dispositivos/Node.js" id="formulario">
+                <input type="text" id="dispositivo" placeholder="Dispositivo">
+                <input type="text" id="ip" placeholder="IP">
+                <input type="text" id="ubicacion" placeholder="Ubicacion">
+                <button class="btnAgregar" type="submit" id="btnAgregar">Agregar</button>
+            </form>
         </div>
     </div>
 
-    <div class="formulario">
-        <h1 style="margin: 5%;">Formulario</h1>
-        <form id="data-form">
-            
-            <input type="text" id="device" name="device" placeholder="Dispositivo" required><br><br>
-            <input type="text" id="ip" name="ip" placeholder="Direccion IP" required><br><br>
-            <input type="text" id="location" name="location" placeholder="Ubicación"  required><br><br>
-
-            <button type="button" onclick="addData()" class="btn-agregar">Agregar</button>
-        </form>
-    </div>
-</div>
-</DIV>
-    <script src="/Localizacion-Dispositivos/App.js">
-
+    <script src="../Localizacion-Dispositivos/Apps.js">
+        
     </script>
 </body>
 
