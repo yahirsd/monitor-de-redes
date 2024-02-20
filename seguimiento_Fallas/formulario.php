@@ -1,25 +1,17 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST["nombre"];
-    $descripcion = $_POST["descripcion"];
+$nombre = $_POST['nombre']; // Obtén el valor del campo 'nombre' del formulario
+$apellido = $_POST['apellido']; // Obtén el valor del campo 'apellido' del formulario
+$estado = '0'; // Obtén el valor del campo 'email' del formulario
 
-    
-    $conexion = new mysqli("localhost", "angel", "root", "fallas");
+// Consulta SQL para insertar datos
+$sql = "INSERT INTO Students (name, lastname, email) VALUES ('$nombre', '$apellido', '$estado')";
 
- 
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
-
-    // Inserta los datos en la tabla "fallas"
-    $sql = "INSERT INTO fallas (nombre, descripcion) VALUES ('$nombre', '$descripcion')";
-    if ($conexion->query($sql) === TRUE) {
-        echo "Registrado correctamente";
-    } else {
-        echo "Error al registrar " . $conexion->error;
-    }
-
-    // Cierra la conexión
-    $conexion->close();
+if (mysqli_query($conn, $sql)) {
+    echo "Registro insertado correctamente";
+} else {
+    echo "Error al insertar el registro: " . mysqli_error($conn);
 }
+
+// Cierra la conexión
+mysqli_close($conn);
 ?>
