@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles/inventory.css">
+    <link rel="stylesheet" href="../styles/inventory.css">
     <title>Vista General del Inventario</title>
     <style>
         body {
@@ -53,19 +53,15 @@
           <li><a href="#Configuraciones">Configuraciones</a></li>
         </ul>
     </nav>
-    <div class="formContent">
-        <form action="controller.php" method="post">
-            <label for="name">Nombre del producto:</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="desc">Descripción:</label>
-            <input type="desc" id="desc" name="desc" required>
-        
-            <label for="cant">Cantidad:</label>
-            <input type="number" id="cant" name="cant" required>
-        
-            <input type="submit" name='edit' value="Guardar Cambios?">
-        </form>
+    <div class="table-container">
+        <table>
+            <?php
+              include_once("sql/sqlQuery.php");
+              $op=new SQLModel();
+              $op->getViewerList();
+            ?>
+        </table>
     </div>
+      
 </body>
 </html>

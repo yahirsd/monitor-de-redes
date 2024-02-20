@@ -94,12 +94,16 @@ body {
 .table-container table {
     width: 100%;
     border-collapse: collapse;
-    background-color: burlywood;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(84, 214, 203);
 }
 .table-container2 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: burlywood;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(171, 218, 214);
 } 
 .table-container td {
     border: 1px solid #0f0e0e;

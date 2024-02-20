@@ -19,4 +19,27 @@ function search() {
     }
     tr[i].style.display = display;
   }
-}		
+}
+
+
+// Obtener los elementos necesarios
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("openModalBtn");
+var span = document.getElementsByClassName("close")[0];
+
+// Cuando se haga clic en el botón, mostrar el modal
+btn.onclick = function () {
+  modal.style.display = "block";
+}
+
+// Cuando se haga clic en (x), cerrar el modal
+span.onclick = function () {
+  modal.style.display = "none";
+}
+
+// Cuando se haga clic fuera del modal, cerrarlo
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

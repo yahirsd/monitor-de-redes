@@ -61,6 +61,29 @@
                 }
             }
         }
+        public function getViewerList(){
+            $query="SELECT * FROM inventario";
+            $result=$this->conn->query($query);
+            if($result && $result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    $nombre=$row['nombre'];
+                    $desc=$row['descripcion'];
+                    $cant=$row['cantidad'];
+                    echo "
+                    <tr>
+                    <td>
+                      <div class='container'>
+                          <ol>
+                              <li><a href='inventarioD.php'>$nombre</a></li>
+                              <li>$desc</li>
+                              <li>Cantidad Disponible: $cant</li>
+                          </ol>
+                      </div>
+                  </td>
+                  </tr>";
+                }
+            }
+        }
         public function getEdit($cond){
             $query="SELECT * FROM inventario WHERE id_inventario='$cond'";
             $result=$this->conn->query($query);
@@ -76,7 +99,7 @@
                         echo"<label for='desc'>Nombre del producto:</label>
                         <input type='text' id='desc' name='desc' value='$desc' required>";
                         echo"<label for='cant'>Nombre del producto:</label>
-                        <input type='text' id='cant' name='cant' value='$cant' required>";
+                        <input type='number' id='cant' name='cant' value='$cant' required>";
                         echo "<input type='hidden' name='id' id='id' value='$id'>";
                         echo "<input type='submit' name='edit' value='Guardar Cambios?''>";
                     echo "</form>";
