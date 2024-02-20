@@ -17,6 +17,8 @@ conection.query('Select * from tabla_fallas',(err,rows) =>
     if(err) throw err
     console.log('los datos solicitados son: ')
     console.log(rows);
-    console.log(rows.length)
+    console.log(rows.length);
+    const ids = rows[0];
+    console.log(`los id son ${ids.id}`);
 })
 conection.end();
