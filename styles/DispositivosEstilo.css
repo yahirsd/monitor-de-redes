@@ -22,7 +22,7 @@ body {
   }
   
   /* Estilos del formulario */
-  .formulario {
+  .divFormulario {
     align-items: flex-start;
     width: 40%; /* Ancho del formulario */
     margin: 50px 50px;
@@ -31,20 +31,20 @@ body {
     box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 
   }
-  .formulario h1 {
+  .divFormulario h1 {
     margin-top: 10px;
     font-weight: 200;
     font-size: 1.5em; /* Reducimos el tamaño del encabezado */
     color: #f3eae8;
   }
   
-  .formulario form {
+  .divFormulario form {
     width: 80%; /* Reducimos el ancho del formulario */
     margin-left: 5%;
   }
   
-  .formulario form input,
-  .formulario form button {
+  .divFormulario form input,
+  .divFormulario form button {
     width: 100%; /* Hacemos que los elementos ocupen todo el ancho disponible */
     padding: 10px 10px;
     margin: 10px 0; /* Ajustamos los márgenes */
@@ -99,7 +99,7 @@ body {
     border-radius: 50px;
   }
 
-  .btn-agregar {
+  .btnAgregar {
     padding: 10px 20px;
     border: none;
     margin: 10px 0;
