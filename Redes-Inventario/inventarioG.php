@@ -62,6 +62,6 @@
             ?>
         </table>
     </div>
-      
+  <script src="crud/JS/noLess.js"></script>
 </body>
 </html>

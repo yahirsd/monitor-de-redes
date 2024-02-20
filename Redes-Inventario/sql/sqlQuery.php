@@ -69,15 +69,30 @@
                     $nombre=$row['nombre'];
                     $desc=$row['descripcion'];
                     $cant=$row['cantidad'];
+                    $id=$row['id_inventario'];
                     echo "
                     <tr>
                     <td>
                       <div class='container'>
+                      <form action='crud/menu.php' method='post'>
                           <ol>
                               <li><a href='inventarioD.php'>$nombre</a></li>
-                              <li>$desc</li>
+                              <li>$desc</li> 
                               <li>Cantidad Disponible: $cant</li>
+                            <input type='hidden' name='id' value='$id'></input>
+                            <ol class='list-look'>
+                                <li>
+                                    <label >Nombre del prestador: </label>
+                                    <input type='text' name='name' required></input>
+                                </li>
+                                <li>
+                                    <label>Inserte la cantidad: </label>
+                                    <input type='number' name='cant' required></input>
+                                </li>
+                            </ol>
+                            <input type='submit' class='styled-submit' name='borrow' value='Tomar Prestado'></input>
                           </ol>
+                        </form>
                       </div>
                   </td>
                   </tr>";
