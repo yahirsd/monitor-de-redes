@@ -1,3 +1,4 @@
+
 let listaFallas = [];
 
 const objFalla = {
@@ -60,6 +61,30 @@ function agregarFalla() {
     formulario.reset();
 
     limpiarObjeto();
+
+    // Maneja la solicitud POST desde el formulario
+app.post('/registrar', (req, res) => {
+    const { nombre, apellido, email } = req.body;
+
+    // Inserta los datos en la tabla (por ejemplo, 'Suscriptores')
+    const sql = `INSERT INTO Suscriptores (nombre, apellido, email) VALUES (?, ?, ?)`;
+    db.query(sql, [nombre, apellido, email], (err, result) => {
+        if (err) {
+            console.error('Error al insertar el registro:', err);
+            res.status(500).send('Error al suscribirse');
+        } else {
+            console.log('Registro insertado correctamente');
+            res.status(200).send('¡Gracias por suscribirte!');
+        }
+    });
+});
+
+// Inicia el servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
+
 }
 
 function limpiarObjeto() {
