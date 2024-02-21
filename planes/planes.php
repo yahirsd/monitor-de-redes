@@ -75,7 +75,6 @@
         </span>
       </div>
 
-
       <table class="table">
         <thead class="table__head">
           <tr class=table__row>
@@ -88,34 +87,38 @@
         </thead>
 
         <tbody id="table-body" class="table__body">
-          <tr class=table__row>
-            <th>1</th>
-            <td>Archivo</td>
-            <td>Este es un ejemplo de una escripcion</td>
-            <td>20/20/20</td>
-            <td><button id="openModalBtn">Eliminar</button>
-            </td>
-          </tr>
 
-          <tr class=table__row>
-            <th>1</th>
-            <td>Archivo</td>
-            <td>
-              Este es un ejemplo de una escripcion, texto aleatorio para ver que la table si
-              colapse cuando tiene que colapsar y que no desborda el texto
-            </td>
-            <td>20/20/20</td>
-            <td><a href="#">Eliminar</a></td>
-          </tr>
+          <?php
+          // Verificar si la conexión fue exitosa
+          if ($conexion->connect_error) {
+            die("Conexión fallida: " . $conexion->connect_error);
+          }
 
-          <tr class=table__row>
-            <th>1</th>
-            <td>Archivo</td>
-            <td>Este es un ejemplo de una escripcion</td>
-            <td>20/20/20</td>
-            <td><a href="#">Eliminar</a></td>
-          </tr>
-        </tbody>
+          // Consulta SELECT
+          $sql = "SELECT id, nombre, descripcion, fecha, ruta FROM planes";
+          $resultado = $conexion->query($sql);
+
+          if ($resultado->num_rows > 0) {
+            // Imprimir los resultados
+            while ($fila = $resultado->fetch_assoc()) {
+              echo "<tr class=table__row>";
+              echo "<th>" . $fila["id"] . "</th>";
+              echo "<td>" . $fila["nombre"] . "</td>";
+              echo "<td>";
+              echo $fila["descripcion"];
+              echo "</td>";
+              echo "<td>".$fila["fecha"]."</td>";
+              echo "<td><a href='../files/'>Eliminar</a></td>";
+              echo "</tr>";
+            }
+          } else {
+            echo "No se encontraron resultados en la tabla 'tabla_falllas'.";
+          }
+
+          // Cerrar la conexión
+          $conexion->close();
+          ?>
+       </tbody>
       </table>
 
     </section>
@@ -157,7 +160,7 @@ if (isset($_POST["name"]) and isset($_POST["description"])) {
 
 function upLoadFile()
 {
-  $dir_subida = 'files/';
+  $dir_subida = "C:/xampp/htdocs/files/";
   $fichero_subido = $dir_subida . basename($_FILES['file']['name']);
 
   echo '<pre>';
