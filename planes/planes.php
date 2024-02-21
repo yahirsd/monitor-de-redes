@@ -26,8 +26,8 @@
     <nav>
       <ul>
         <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../Localizacion-Dispositivos/">Localizar Dispositivos</a></li>
-        <li><a href="Redes-Inventario/inventarioG.html">Inventario</a></li>
+        <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
+        <li><a href="../Redes-Inventario/inventarioG.php">Inventario</a></li>
         <li><a href="../planes/planes.php">Planes de Prevención</a></li>
         <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
 
@@ -117,7 +117,6 @@
           }
 
           // Cerrar la conexión
-          $conexion->close();
           ?>
        </tbody>
       </table>
