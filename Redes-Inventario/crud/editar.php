@@ -60,5 +60,6 @@
           $op->getEdit($id);
         ?>
     </div>
+    <script src="JS/noEmpty2.js"></script>
 </body>
 </html>

@@ -11,6 +11,21 @@ body {
     background-color: #121813; 
 }
 
+.title {
+  border-bottom: 2px solid #333; 
+  margin-bottom: 20px; 
+  align-content: center;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
 .styled-button {
   display: inline-block;
   padding: 10px 20px;
@@ -102,23 +117,27 @@ body {
   border-collapse: collapse;
   padding: 8px;
   text-align: center;
+  color: #fff;
 }
 .table-container table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
-    background-color: rgb(84, 214, 203);
+    background-color: #222943;
 }
 .table-container2 table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgb(171, 218, 214);
+  background-color: #222943;
+} 
+.table-container2 td {
+  color: #fff;
 } 
 .table-container td {
-    border: 1px solid #0f0e0e;
+    border: 1px solid #f1ecec;
     padding: 8px;
     text-align: left;
   }
@@ -132,6 +151,11 @@ body {
   }
   .table-container li {
     margin-bottom: 8px;
+    color: #fff;
+  }
+  .table-container a {
+    margin-bottom: 8px;
+    color: #fff;
   }
 .table-container label {
     display: inline-block;
@@ -156,10 +180,14 @@ body {
   .formContent form {
     max-width: 400px;
     margin: 20px auto;
+    padding: 20px;
+    background-color: #222943;
+    border-radius: 10px;
 }
 
 .formContent label {
     display: block;
+    color: #fff;
     margin-bottom: 5px;
 }
 
@@ -171,11 +199,10 @@ body {
 }
 
 .formContent input[type="submit"] {
-    background-color: #4caf50;
     color: white;
     cursor: pointer;
 }
 
 .formContent input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #222e99;
 }

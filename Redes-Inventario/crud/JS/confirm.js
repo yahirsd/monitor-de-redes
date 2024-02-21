@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 event.preventDefault();
             }
         });
-    });
-    
+    }); 
+    var downB = document.querySelectorAll('input[type="submit"][name="deletorB"]');
+    downB.forEach(down => {
+        down.addEventListener("click", function(event) {
+            if (!confirm("El prestador devolvio el dispositivo?\nOk para confirmar\nCancelar si no se ha devuelto el dispositivo")) {
+                event.preventDefault();
+            }
+        });
+    }); 
 });
