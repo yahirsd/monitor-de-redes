@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página</title>
+</head>
+<body>
+    <header>
+        <h1>Hola Mundo!</h1>
+    </header>
+
+    <main>
+        <section>
+            <p>Esta es una página HTML5.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Mi Página</p>
+    </footer>
+
+    <script>
+        // Este es un script de JavaScript
+        const mysql = require("mysql")
+
+        const conection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'root',
+            database: 'fallas'
+        })
+
+        conection.connect((err) => {
+            if (err) throw err
+            console.log('la conexion funciona')
+        })
+
+        conection.query('Select * from tabla_fallas', (err, rows) => {
+            if (err) throw err
+            console.log('los datos solicitados son: ')
+            console.log(rows);
+            console.log(rows.length)
+        })
+        conection.end();
+
+    </script>
+</body>
+</html>
+l>
