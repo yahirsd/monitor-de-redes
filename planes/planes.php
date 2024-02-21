@@ -104,7 +104,7 @@
               echo $fila["descripcion"];
               echo "</td>";
               echo "<td>".$fila["fecha"]."</td>";
-              echo "<td><a href='./delete.php?id={$fila["id"]}'>Eliminar</a></td>";
+              echo "<td><a href='./delete.php?id={$fila["id"]}&ruta={$fila["ruta"]}'>Eliminar</a></td>";
               echo "</tr>";
             }
           } else {
