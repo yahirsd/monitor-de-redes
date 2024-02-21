@@ -12,7 +12,7 @@
 <body>
 
   <?php
-  include("../db/conection.php")
+  include("../db/conection.php");
   ?>
   <div id="myModal" class="modal">
     <div class="modal-content">
@@ -90,11 +90,6 @@
         <tbody id="table-body" class="table__body">
 
           <?php
-          // Verificar si la conexión fue exitosa
-          if ($conexion->connect_error) {
-            die("Conexión fallida: " . $conexion->connect_error);
-          }
-
           // Consulta SELECT
           $sql = "SELECT id, nombre, descripcion, fecha, ruta FROM planes";
           $resultado = $conexion->query($sql);
@@ -109,7 +104,7 @@
               echo $fila["descripcion"];
               echo "</td>";
               echo "<td>".$fila["fecha"]."</td>";
-              echo "<td><a href='../files/'>Eliminar</a></td>";
+              echo "<td><a href='./delete.php?id={$fila["id"]}'>Eliminar</a></td>";
               echo "</tr>";
             }
           } else {
