@@ -104,7 +104,7 @@
             while ($fila = $resultado->fetch_assoc()) {
               echo "<tr class=table__row>";
               echo "<th>" . $fila["id"] . "</th>";
-              echo "<td>" . $fila["nombre"] . "</td>";
+              echo "<td> <a href='../files/{$fila["ruta"]}'>{$fila["nombre"]}</a></td>";
               echo "<td>";
               echo $fila["descripcion"];
               echo "</td>";
@@ -130,10 +130,11 @@
 
 </html>
 <?php
+
 if (isset($_POST["name"]) and isset($_POST["description"])) {
   $nombre = $_POST["name"];
   $descripcion = $_POST["description"];
-  $ruta = "file";
+  $ruta = $_FILES['file']['name'];
 
   // Consulta de inserción
   $sql = "INSERT INTO planes (nombre, descripcion, ruta) VALUES (?, ?, ?)";
@@ -157,7 +158,6 @@ if (isset($_POST["name"]) and isset($_POST["description"])) {
 }
 
 
-
 function upLoadFile()
 {
   $dir_subida = "C:/xampp/htdocs/files/";
@@ -174,5 +174,6 @@ function upLoadFile()
   print_r($_FILES);
 
   print "</pre>";
+  header("Location: ./planes.php");
 }
 ?>
