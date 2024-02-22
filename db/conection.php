@@ -12,7 +12,6 @@ $conexion = new mysqli($host, $usuario, $contraseña, $basedatos);
 if ($conexion->connect_errno) {
     echo "Fallo al conectar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
 } else {
-    echo "Conexión exitosa a la base de datos: " . $basedatos;
 }
 
 

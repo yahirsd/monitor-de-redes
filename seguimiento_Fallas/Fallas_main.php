@@ -35,9 +35,9 @@
 
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
-                <li><a href="../Redes-Inventario/">Inventario</a></li>
-                <li><a href="../planes/">Planes de Prevención</a></li>
-                <li><a href="../seguimiento_Fallas/">Seguimiento de Fallas </a></li>
+                <li><a href="../Redes-Inventario/inventarioG.html">Inventario</a></li>
+                <li><a href="../planes/planes.php">Planes de Prevención</a></li>
+                <li><a href="../seguimiento_Fallas/Fallas_main.php">Seguimiento de fallas</a></li>
 
             </ul>
         </nav>
@@ -49,7 +49,7 @@
         <div class="divFormulario">
             <h2> Formulario </h2>
 
-            <form action="" method="get" id="formulario">
+            <form action="" method="get" id="formulario" accept-charset="UTF-8">
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre de la falla" required>
                 <input type="text" id="descripcion" name="descripcion" placeholder="Descripción de la falla" required>
                 <button type="submit" id="btnAgregar">Agregar</button>
@@ -81,7 +81,7 @@
                 } else {
                     echo "No se encontraron resultados en la tabla 'tabla_falllas'.";
                 }
-                
+
                 ?>
             </div>
         </div>
@@ -111,12 +111,11 @@
             echo "Error al preparar la consulta: " . $conexion->error;
         }
         header("Location: ./Fallas_main.php");
-        
+
         // Cierra la conexión al finalizar
         $conexion->close();
-        
     }
-    
+
     ?>
 
     <script>

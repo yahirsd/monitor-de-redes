@@ -29,7 +29,7 @@
         <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
         <li><a href="../Redes-Inventario/inventarioG.php">Inventario</a></li>
         <li><a href="../planes/planes.php">Planes de Prevención</a></li>
-        <li><a href="../seguimiento_Fallas/Fallas_main.html">Seguimiento de fallas</a></li>
+        <li><a href="../seguimiento_Fallas/Fallas_main.php">Seguimiento de fallas</a></li>
 
       </ul>
     </nav>
@@ -39,7 +39,7 @@
   <main class="container">
 
     <aside class="aside">
-      <form enctype="multipart/form-data" method="post" class="form">
+      <form enctype="multipart/form-data" method="post" class="form" accept-charset="UTF-8">>
         <legend class=form__legend>Agregar un nuevo registro</legend>
         <div class="field">
           <label for="input-name" class="ha-screen-reader">Nombre</label>
@@ -103,7 +103,7 @@
               echo "<td>";
               echo $fila["descripcion"];
               echo "</td>";
-              echo "<td>".$fila["fecha"]."</td>";
+              echo "<td>" . $fila["fecha"] . "</td>";
               echo "<td><button id='{$fila["id"]}_delate' class='link-delete' atributo='./delete.php?id={$fila["id"]}&ruta={$fila["ruta"]}'>Eliminar</button></td>";
               echo "</tr>";
             }
@@ -113,24 +113,24 @@
 
           // Cerrar la conexión
           ?>
-       </tbody>
+        </tbody>
       </table>
 
     </section>
   </main>
-<script>
-  const linkDelete = document.querySelectorAll(".link-delete");
-  linkDelete.forEach(element =>{ 
-    element.addEventListener("click",event => {
-      event.defaultPrevented;
-      if(confirm("Estas Seguro de que deseas eliminar este archivo?")){
-        window.location.href = element.getAttribute("atributo");
-      }else{
+  <script>
+    const linkDelete = document.querySelectorAll(".link-delete");
+    linkDelete.forEach(element => {
+      element.addEventListener("click", event => {
+        event.defaultPrevented;
+        if (confirm("Estas Seguro de que deseas eliminar este archivo?")) {
+          window.location.href = element.getAttribute("atributo");
+        } else {
 
-      }
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 
 <script src="busqueda.js"></script>
@@ -170,17 +170,10 @@ function upLoadFile()
   $dir_subida = "C:/xampp/htdocs/files/";
   $fichero_subido = $dir_subida . basename($_FILES['file']['name']);
 
-  echo '<pre>';
   if (move_uploaded_file($_FILES['file']['tmp_name'], $fichero_subido)) {
-    echo "El fichero es válido y se subió con éxito.\n";
   } else {
     echo "¡Posible ataque de subida de ficheros!\n";
   }
-
-  echo 'Más información de depuración:';
-  print_r($_FILES);
-
-  print "</pre>";
-  header("Location: ./planes.php");
+  
 }
 ?>
