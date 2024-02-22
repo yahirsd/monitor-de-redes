@@ -2,8 +2,8 @@
     class SQLModel{
         private $host = "localhost";
         private $username = "root";
-        private $password = "";
-        private $dbname = "monitor_de_redes";
+        private $password = "root";
+        private $dbname = "admonbd";
         private $conn;
 
         public function __construct(){

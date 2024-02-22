@@ -31,10 +31,10 @@
             <ul>
 
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
-                <li><a href="../Redes-Inventario/">Inventario</a></li>
-                <li><a href="../planes/">Planes de Prevención</a></li>
-                <li><a href="../seguimiento_Fallas/">Seguimiento de Fallas </a></li>
+                <li><a href="../Localizacion-Dispositivos/Dispositivos.php">Localizar Dispositivos</a></li>
+                <li><a href="../Redes-Inventario/inventarioG.php">Inventario</a></li>
+                <li><a href="../planes/planes.php">Planes de Prevención</a></li>
+                <li><a href="../seguimiento_Fallas/Fallas_main.php">Seguimiento de Fallas </a></li>
             </ul>
         </nav>
 
@@ -52,11 +52,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
-<<<<<<< HEAD
-                $dbname = "admonBD";
-=======
-                $dbname = "redes";
->>>>>>> 0c6ac6ae9e32da4d9ca01a568a11c7cddf3b652b
+                $dbname = "admonbd";
 
                 // Crear conexión
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -100,13 +96,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
-<<<<<<< HEAD
     $password = "root";
-    $dbname = "admonBD";
-=======
-    $password = "Moisescr7";
-    $dbname = "redes";
->>>>>>> 0c6ac6ae9e32da4d9ca01a568a11c7cddf3b652b
+    $dbname = "admonbd";
 
     // Crear conexión
     $conn = new mysqli($servername, $username, $password, $dbname);
