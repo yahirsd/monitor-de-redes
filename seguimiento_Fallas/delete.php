@@ -1,9 +1,7 @@
 <?php
 include("../db/conection.php");
-
 // Obtener el ID del usuario a eliminar
 $id_a_eliminar = $_GET['id']; // Suponiendo que el ID se pasa como parámetro GET
-
 // Consulta SQL para eliminar el usuario
 $sql = "DELETE FROM tabla_fallas WHERE id = $id_a_eliminar";
 
