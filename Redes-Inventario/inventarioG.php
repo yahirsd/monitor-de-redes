@@ -64,6 +64,7 @@
     </style>
 </head>
 <body>
+  
     <nav>
         <ul>
           <li><a href="#network">Localizar Dispositivos</a></li>
@@ -73,6 +74,9 @@
           <li><a href="#Configuraciones">Configuraciones</a></li>
         </ul>
     </nav>
+    <div class="title">
+        <h3 class='title-separator'>Inventario General</h3>
+    </div>
     <div class="table-container">
         <table>
             <?php
