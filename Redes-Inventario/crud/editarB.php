@@ -47,20 +47,18 @@
     <nav>
         <ul>
           <li><a href="#network">Localizar Dispositivos</a></li>
-          <li><a href="#Inventario">Inventario</a></li>
+          <li><a href="../inventarioG.php">Inventario</a></li>
           <li><a href="#Prevención">Planes de Prevención</a></li>
           <li><a href="#Fallas">Seguimiento de Fallas</a></li>
           <li><a href="#Configuraciones">Configuraciones</a></li>
         </ul>
     </nav>
-    <div class="formContent">
-        <?php
-          include_once("../sql/sqlQuery.php");
-          $op=new SQLModel();
-          $op->getEdit($id);
-        ?>
-    </div>
-    <script src="JS/noEmpty2.js"></script>
-    <script src="JS/noLess3.js"></script>
+    <?php
+      include_once("../sql/sqlQuery.php");
+      $op=new SQLModel();
+      $op->getEditB($id);
+    ?>
+    <script src="JS/noEmpty3.js"></script>
+    <script src="JS/noLess2.js"></script>
 </body>
 </html>

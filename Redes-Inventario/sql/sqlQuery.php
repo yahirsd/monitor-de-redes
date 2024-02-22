@@ -32,6 +32,42 @@
             }
             return 0;
         }
+        public function modifyB($POST){
+            $nombre=$POST['name'];
+            $prod=$POST['prod'];
+            $prodO=$POST['idP'];
+            $canti=(int)$POST['cant'];
+            $canti2=(int)$this->getAmount($prod);
+            $canti3=(int)$this->getAmount($prodO);
+            $cantiO=(int)$POST['cant2'];
+            $id=$POST['id'];
+            $total=$cantiO+$canti2;
+            if($prod!=$prodO){
+                $total=$canti2;
+                $total2=$canti3+$cantiO;
+                $query2="UPDATE inventario SET cantidad='$total2' WHERE id_inventario='$prodO'";
+                $result2=$this->conn->query($query2);
+                if($total<$canti){
+                    return "amount";
+                }
+                $total=$total-$canti;
+                $query3="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prod'";
+                $result3=$this->conn->query($query3);
+            }else{
+                if($total<$canti){
+                    return "amount";
+                }
+                $total=$total-$canti;
+                $query2="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prodO'";
+                $result2=$this->conn->query($query2);
+            }
+            $query="UPDATE prestadores SET nombre='$nombre',cantidad='$canti',id_inventario='$prod' WHERE id_prestador='$id'";
+            $result=$this->conn->query($query);
+            if($result){
+                return "yes";
+            }
+            return "no";
+        }
         public function delete($id){
             $query="DELETE FROM inventario WHERE id_inventario='$id'";
             $result=$this->conn->query($query);
@@ -86,6 +122,7 @@
                         echo "<td>".$this->getItem($row['id_inventario'])."</td>";
                         echo "<td colspan='2' class='lowSpace'>";
                             echo "<input type='submit' name='deletorB' value='Regresado' class='styled-submit'></input>";
+                            echo "<input type='submit' class='styled-submit' value='Editar' name='editorB'></input> ";
                             //echo "<input type='submit' class='input-submiter1' name='deletor'></input> ";
                             echo "<input type='hidden' name='id' value='".$row['id_inventario']."'></input>";
                             echo "<input type='hidden' name='id2' value='".$row['id_prestador']."'></input>";
@@ -177,6 +214,51 @@
                         echo "<input type='hidden' name='id' id='id' value='$id'>";
                         echo "<input type='submit' class='styled-submit' name='edit' id='edit' value='Guardar Cambios?''>";
                     echo "</form>";
+                }
+            }
+        }
+        public function getEditB($id){
+            $query="SELECT * FROM prestadores WHERE id_prestador='$id'";
+            $result=$this->conn->query($query);
+            if($result && $result->num_rows>0){
+                $row=$result->fetch_assoc();
+                $name=$row['nombre'];
+                $cant=$row['cantidad'];
+                $oldP=$row['id_inventario'];
+                $id=$row['id_prestador'];
+                echo "<div class='formContent'>
+            <form action='menu.php' method='post' >
+                <label for='name'>Nombre del prestador:</label>
+                <input type='text' id='name' value='$name' name='name' required>
+            
+                <label for='cant'>Cantidad prestada:</label>
+                <input type='number' id='cant' value='$cant' name='cant' required>
+            
+                <label for='prod'>Producto:</label>";
+                echo "<select class='optionFormat' name='prod' id='prod' required>";
+                  $this->getAvailableItems($row['id_inventario']);
+                echo "</select>";
+                echo "<input type='hidden' name='id' value='$id'>";
+                echo "<input type='hidden' name='idP' value='$oldP'>";
+                echo "<input type='hidden' name='cant2' value='$cant'>";
+
+                echo "<input type='submit' class='styled-submit' name='editB' id='editB' value='Guardar Cambios?'>
+            </form>
+        </div>";
+        }
+        }
+        private function getAvailableItems($id){
+            $query="SELECT * FROM inventario";
+            $result=$this->conn->query($query);
+            if($result && $result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    $id2=$row['id_inventario'];
+                    $name=$row['nombre'];
+                    if($id2==$id){
+                        echo "<option value='$id2' selected>$name</option>";
+                    }else{
+                        echo "<option value='$id2'>$name</option>";
+                    }
                 }
             }
         }

@@ -2,17 +2,24 @@
   session_start();
   if(isset($_SESSION['error'])){
     if($_SESSION['error']=="repeat"){
-      
+      echo '<script>alert("Error la persona ingresada ya tiene algo prestado!");</script>';
     }
     if($_SESSION['error']=="missing"){
-      
+      echo '<script>alert("Error casilla vacia detectada!");</script>';
     }
     if($_SESSION['error']=="number"){
-      
+      echo '<script>alert("Error cantidad invalida!");</script>';
     }
+    unset($_SESSION['error']);
   }
   if(isset($_SESSION['success'])){
-
+    if($_SESSION['success']=="insert"){
+      echo '<script>alert("Registro de datos exitoso!");</script>';
+    }
+    if($_SESSION['success']=="update"){
+      echo '<script>alert("Los datos fueron actualizado con exito!");</script>';
+    }
+    unset($_SESSION['success']);
   }
 ?>
 <!DOCTYPE html>

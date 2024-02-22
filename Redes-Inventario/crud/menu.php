@@ -4,15 +4,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $op=new SQLModel();
     if (isset($_POST["edit"])) {
         $result=$op->modify($_POST);
+        session_start();
+        $_SESSION['success']="update";
+        header("Location: ../inventarioD.php");
+    }
+    if (isset($_POST["editB"])) {
+        $result=$op->modifyB($_POST);
+        if($result=="amount"){
+            session_start();
+            $_SESSION['error']="number";
+        }else{
+            session_start();
+            $_SESSION['success']="update";
+        }
         header("Location: ../inventarioD.php");
     }
     if(isset($_POST['add'])){
         $result=$op->addItem($_POST);
+        session_start();
+        $_SESSION['success']="insert";
         header("Location: ../inventarioD.php");
     }
     if(isset($_POST['editor'])){
         $id=$_POST['id'];
         include("editar.php");
+    }
+    if(isset($_POST['editorB'])){
+        $id=$_POST['id2'];
+        include("editarB.php");
     }
     if(isset($_POST['deletor'])){
         $id=$_POST['id'];
@@ -54,6 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if($no==0){
             $result=$op->borrowItem($id,$_POST);
+            session_start();
+            $_SESSION['success']="borrow";
             header("Location: ../inventarioG.php");
         }
     }
