@@ -6,6 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result=$op->modify($_POST);
         header("Location: ../inventarioD.php");
     }
+    if (isset($_POST["editB"])) {
+        $result=$op->modifyB($_POST);
+        if($result=="amount"){
+            session_start();
+            $_SESSION['error']="number";
+        }
+        header("Location: ../inventarioD.php");
+    }
     if(isset($_POST['add'])){
         $result=$op->addItem($_POST);
         header("Location: ../inventarioD.php");
@@ -13,6 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['editor'])){
         $id=$_POST['id'];
         include("editar.php");
+    }
+    if(isset($_POST['editorB'])){
+        $id=$_POST['id2'];
+        include("editarB.php");
     }
     if(isset($_POST['deletor'])){
         $id=$_POST['id'];
