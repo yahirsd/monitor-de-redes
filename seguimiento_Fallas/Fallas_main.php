@@ -58,8 +58,8 @@
                     // Imprimir los resultados
                     while ($fila = $resultado->fetch_assoc()) {
                         echo "<p>ID: " . $fila["id"] . " - Nombre: " . $fila["nombre"] . " - Descripción: " . $fila["descripcion"] . " - Estado: " . ($fila["estado"] ? "Activo" : "Inactivo");
-                        echo "<button class='btn-eliminar btn'>Eliminar</button>";
-                        echo "<button class='btn-editar btn'>editar</button>";
+                        echo "<button class='btn-eliminar btn eliminar' eliminar='./delete.php?id={$fila["id"]}'>Eliminar</button>";
+                        echo "<button editar='' class='btn-editar btn'>editar</button>";
                         echo "</p>";
                         echo "<hr>";
                     }
@@ -67,8 +67,8 @@
                     echo "No se encontraron resultados en la tabla 'tabla_falllas'.";
                 }
 
-                // Cerrar la conexión
-                $conexion->close();
+               
+                
                 ?>
             </div>
         </div>
@@ -98,11 +98,26 @@
             echo "Error al preparar la consulta: " . $conexion->error;
         }
 
+        header("Location: ./Fallas_main.php");
         // Cierra la conexión al finalizar
         $conexion->close();
     }
 
     ?>
+
+<script>
+  const linkDelete = document.querySelectorAll(".eliminar");
+  linkDelete.forEach(element =>{ 
+    element.addEventListener("click",event => {
+      event.defaultPrevented;
+      if(confirm("Estas Seguro de que deseas eliminar este archivo?")){
+       window.location.href = element.getAttribute("eliminar");
+      }else{
+
+      }
+    });
+  });
+</script>
 </body>
 
 </html>

@@ -104,7 +104,7 @@
               echo $fila["descripcion"];
               echo "</td>";
               echo "<td>".$fila["fecha"]."</td>";
-              echo "<td><a href='./delete.php?id={$fila["id"]}&ruta={$fila["ruta"]}'>Eliminar</a></td>";
+              echo "<td><button id='{$fila["id"]}_delate' class='link-delete' atributo='./delete.php?id={$fila["id"]}&ruta={$fila["ruta"]}'>Eliminar</button></td>";
               echo "</tr>";
             }
           } else {
@@ -118,7 +118,19 @@
 
     </section>
   </main>
+<script>
+  const linkDelete = document.querySelectorAll(".link-delete");
+  linkDelete.forEach(element =>{ 
+    element.addEventListener("click",event => {
+      event.defaultPrevented;
+      if(confirm("Estas Seguro de que deseas eliminar este archivo?")){
+        window.location.href = element.getAttribute("atributo");
+      }else{
 
+      }
+    });
+  });
+</script>
 </body>
 
 <script src="busqueda.js"></script>
