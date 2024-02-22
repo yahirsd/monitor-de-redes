@@ -51,7 +51,7 @@
             <?php
                 $servername = "localhost";
                 $username = "root";
-                $password = "root";
+                $password = "Moisescr7";
                 $dbname = "redes";
 
                 // Crear conexión
@@ -93,38 +93,40 @@
                 <button class="btnAgregar" type="submit" id="btnAgregar">Agregar</button>
             </form>
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $servername = "localhost";
-                $username = "root";
-                $password = "Moisescr7";
-                $dbname = "redes";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = "localhost";
+    $username = "root";
+    $password = "Moisescr7";
+    $dbname = "redes";
 
-                // Crear conexión
-                $conn = new mysqli($servername, $username, $password, $dbname);
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-                // Comprobar la conexión
-                if ($conn->connect_error) {
-                    die("Conexión fallida: " . $conn->connect_error);
-                }
+    // Comprobar la conexión
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
 
-                // Obtener datos del formulario
-                $dispositivo = $_POST['dispositivo'];
-                $ip = $_POST['ip'];
-                $ubicacion = $_POST['ubicacion'];
+    // Obtener datos del formulario
+    $dispositivo = $_POST['dispositivo'];
+    $ip = $_POST['ip'];
+    $ubicacion = $_POST['ubicacion'];
 
-                // Preparar y ejecutar la consulta SQL para insertar los datos en la base de datos
-                $sql = "INSERT INTO dispositivos (dispositivo, ip, ubicacion) VALUES ('$dispositivo', '$ip', '$ubicacion')";
+    // Preparar y ejecutar la consulta SQL para insertar los datos en la base de datos
+    $sql = "INSERT INTO dispositivos (dispositivo, ip, ubicacion) VALUES ('$dispositivo', '$ip', '$ubicacion')";
 
-                if ($conn->query($sql) === TRUE) {
-                    echo "<p>Los datos se han enviado correctamente a la base de datos.</p>";
-                } else {
-                    echo "Error al enviar datos a la base de datos: " . $conn->error;
-                }
+    if ($conn->query($sql) === TRUE) {
+        // Redireccionar a la misma página para evitar la duplicación de datos
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+    } else {
+        echo "Error al enviar datos a la base de datos: " . $conn->error;
+    }
 
-                // Cerrar la conexión
-                $conn->close();
-            }
-            ?>
+    // Cerrar la conexión
+    $conn->close();
+}
+?>
         </div>
     </div>
 
