@@ -26,7 +26,7 @@
     <nav>
       <ul>
         <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
+        <li><a href="../Localizacion-Dispositivos/Dispositivos.php">Localizar Dispositivos</a></li>
         <li><a href="../Redes-Inventario/inventarioG.php">Inventario</a></li>
         <li><a href="../planes/planes.php">Planes de Prevención</a></li>
         <li><a href="../seguimiento_Fallas/Fallas_main.php">Seguimiento de fallas</a></li>
@@ -39,7 +39,7 @@
   <main class="container">
 
     <aside class="aside">
-      <form enctype="multipart/form-data" method="post" class="form" accept-charset="UTF-8">>
+      <form enctype="multipart/form-data" method="post" class="form" accept-charset="UTF-8">
         <legend class=form__legend>Agregar un nuevo registro</legend>
         <div class="field">
           <label for="input-name" class="ha-screen-reader">Nombre</label>
