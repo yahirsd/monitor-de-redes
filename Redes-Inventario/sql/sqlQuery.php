@@ -34,18 +34,33 @@
         }
         public function modifyB($POST){
             $nombre=$POST['name'];
+            $prod=$POST['prod'];
+            $prodO=$POST['idP'];
             $canti=(int)$POST['cant'];
+            $canti2=(int)$this->getAmount($prod);
+            $canti3=(int)$this->getAmount($prodO);
             $cantiO=(int)$POST['cant2'];
             $id=$POST['id'];
-            $prod=$POST['prod'];
-            $canti2=(int)$this->getAmount($prod);
             $total=$cantiO+$canti2;
-            if($total<$canti){
-                return "amount";
+            if($prod!=$prodO){
+                $total=$canti2;
+                $total2=$canti3+$cantiO;
+                $query2="UPDATE inventario SET cantidad='$total2' WHERE id_inventario='$prodO'";
+                $result2=$this->conn->query($query2);
+                if($total<$canti){
+                    return "amount";
+                }
+                $total=$total-$canti;
+                $query3="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prod'";
+                $result3=$this->conn->query($query3);
+            }else{
+                if($total<$canti){
+                    return "amount";
+                }
+                $total=$total-$canti;
+                $query2="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prodO'";
+                $result2=$this->conn->query($query2);
             }
-            $total=$total-$canti;
-            $query2="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prod'";
-            $result2=$this->conn->query($query2);
             $query="UPDATE prestadores SET nombre='$nombre',cantidad='$canti',id_inventario='$prod' WHERE id_prestador='$id'";
             $result=$this->conn->query($query);
             if($result){
@@ -209,6 +224,7 @@
                 $row=$result->fetch_assoc();
                 $name=$row['nombre'];
                 $cant=$row['cantidad'];
+                $oldP=$row['id_inventario'];
                 $id=$row['id_prestador'];
                 echo "<div class='formContent'>
             <form action='menu.php' method='post' >
@@ -223,6 +239,7 @@
                   $this->getAvailableItems($row['id_inventario']);
                 echo "</select>";
                 echo "<input type='hidden' name='id' value='$id'>";
+                echo "<input type='hidden' name='idP' value='$oldP'>";
                 echo "<input type='hidden' name='cant2' value='$cant'>";
 
                 echo "<input type='submit' class='styled-submit' name='editB' id='editB' value='Guardar Cambios?'>

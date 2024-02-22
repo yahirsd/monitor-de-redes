@@ -16,7 +16,7 @@
     if($_SESSION['success']=="insert"){
       echo '<script>alert("Registro de datos exitoso!");</script>';
     }
-    if($_SESSION['sucess']=="update"){
+    if($_SESSION['success']=="update"){
       echo '<script>alert("Los datos fueron actualizado con exito!");</script>';
     }
     unset($_SESSION['success']);
