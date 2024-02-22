@@ -16,7 +16,6 @@ body {
 
 .contenedor {
   width: 100%;
-  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
 }
@@ -89,9 +88,11 @@ body {
 }
 
 .contenedor .divListado .div-fallas p {
-  margin: 10px 0;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 1em;
   color: #ddd;
+  width: 100%;
 }
 
 hr {
