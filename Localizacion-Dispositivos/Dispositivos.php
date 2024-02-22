@@ -51,7 +51,7 @@
             <?php
                 $servername = "localhost";
                 $username = "root";
-                $password = "Moisescr7";
+                $password = "root";
                 $dbname = "redes";
 
                 // Crear conexión
