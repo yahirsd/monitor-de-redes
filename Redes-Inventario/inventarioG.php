@@ -13,7 +13,9 @@
     unset($_SESSION['error']);
   }
   if(isset($_SESSION['success'])){
-    
+    if($_SESSION['success']=="borrow"){
+      echo '<script>alert("Dispositivo prestado!");</script>';
+    }
   }
 ?>
 <!DOCTYPE html>
