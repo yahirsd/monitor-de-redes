@@ -40,6 +40,14 @@
             }
             return 0;
         }
+        public function deleteB($id,$id2,$cant){
+            $query="DELETE FROM prestadores WHERE id_prestador='$id2'";
+            $cant2=(int)($this->getAmount($id));
+            $total=$cant2+$cant;
+            $query2="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$id'";
+            $result=$this->conn->query($query);
+            $result2=$this->conn->query($query2);
+        }
 
         public function getList(){
             $query="SELECT * FROM inventario";
@@ -59,6 +67,55 @@
                     echo "</tr>";
                 echo "</form>";
                 }
+            }else{
+                echo "<tr>";
+                    echo "<td colspan='3'>No hay dispositivos disponibles</td>";
+                echo "</tr>";
+            }
+        }
+        public function getList2(){
+            $query="SELECT * FROM prestadores";
+            $result=$this->conn->query($query);
+            
+            if($result && $result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    echo "<form action='crud/menu.php' method='post'>";
+                    echo "<tr>";
+                        echo "<td>".$row['nombre']."</td>";
+                        echo "<td>".$row['cantidad']."</td>";
+                        echo "<td>".$this->getItem($row['id_inventario'])."</td>";
+                        echo "<td colspan='2' class='lowSpace'>";
+                            echo "<input type='submit' name='deletorB' value='Regresado' class='styled-submit'></input>";
+                            //echo "<input type='submit' class='input-submiter1' name='deletor'></input> ";
+                            echo "<input type='hidden' name='id' value='".$row['id_inventario']."'></input>";
+                            echo "<input type='hidden' name='id2' value='".$row['id_prestador']."'></input>";
+                            echo "<input type='hidden' name='cant' value='".$row['cantidad']."'></input>";
+                        echo "</td>";
+                    echo "</tr>";
+                echo "</form>";
+                }
+            }else{
+                echo "<tr>";
+                    echo "<td colspan='3'>No hay prestadores</td>";
+                echo "</tr>";
+            }
+        }
+        private function getItem($id){
+            $query="SELECT nombre FROM inventario WHERE id_inventario='$id'";
+            $result=$this->conn->query($query);
+            if($result){
+                $row = $result->fetch_assoc();
+                $value=$row['nombre'];
+                return "$value";
+            }
+        }
+        private function getAmount($id){
+            $query="SELECT cantidad FROM inventario WHERE id_inventario='$id'";
+            $result=$this->conn->query($query);
+            if($result){
+                $row = $result->fetch_assoc();
+                $value=$row['cantidad'];
+                return "$value";
             }
         }
         public function getViewerList(){
@@ -79,6 +136,7 @@
                               <li><a href='inventarioD.php'>$nombre</a></li>
                               <li>$desc</li> 
                               <li>Cantidad Disponible: $cant</li>
+                            <input type='hidden' name='cant' value='$cant'>
                             <input type='hidden' name='id' value='$id'></input>
                             <ol class='list-look'>
                                 <li>
@@ -87,7 +145,7 @@
                                 </li>
                                 <li>
                                     <label>Inserte la cantidad: </label>
-                                    <input type='number' name='cant' required></input>
+                                    <input type='number' name='cant2' required></input>
                                 </li>
                             </ol>
                             <input type='submit' class='styled-submit' name='borrow' value='Tomar Prestado'></input>
@@ -99,6 +157,7 @@
                 }
             }
         }
+        
         public function getEdit($cond){
             $query="SELECT * FROM inventario WHERE id_inventario='$cond'";
             $result=$this->conn->query($query);
@@ -116,9 +175,36 @@
                         echo"<label for='cant'>Nombre del producto:</label>
                         <input type='number' id='cant' name='cant' value='$cant' required>";
                         echo "<input type='hidden' name='id' id='id' value='$id'>";
-                        echo "<input type='submit' name='edit' value='Guardar Cambios?''>";
+                        echo "<input type='submit' class='styled-submit' name='edit' id='edit' value='Guardar Cambios?''>";
                     echo "</form>";
                 }
             }
+        }
+        public function borrowItem($cnd,$POST){
+            $cant=(int)$POST['cant2'];
+            $cant2=(int)$POST['cant'];
+            $total=$cant2-$cant;
+            $query="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$cnd'";
+            $result=$this->conn->query($query);
+            $name=$POST['name'];
+            $query2="INSERT INTO prestadores(nombre,cantidad,id_inventario)
+            values('$name','$cant','$cnd')";
+            $result2=$this->conn->query($query2);
+            if($result2){
+                return 0;
+            }
+            return 1;
+        }
+        public function noRepeat($name){
+            $query="SELECT nombre FROM prestadores";
+            $result=$this->conn->query($query);
+            if($result && $result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    if($row['nombre']==$name){
+                        return 0;
+                    }
+                }
+            }
+            return 1;
         }
     }

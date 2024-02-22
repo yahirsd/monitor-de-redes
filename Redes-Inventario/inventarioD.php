@@ -1,3 +1,20 @@
+<?php
+  session_start();
+  if(isset($_SESSION['error'])){
+    if($_SESSION['error']=="repeat"){
+      
+    }
+    if($_SESSION['error']=="missing"){
+      
+    }
+    if($_SESSION['error']=="number"){
+      
+    }
+  }
+  if(isset($_SESSION['success'])){
+
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,14 +66,14 @@
     <nav>
         <ul>
           <li><a href="#network">Localizar Dispositivos</a></li>
-          <li><a href="#Inventario">Inventario</a></li>
+          <li><a href="inventarioG.php">Inventario</a></li>
           <li><a href="#Prevención">Planes de Prevención</a></li>
           <li><a href="#Fallas">Seguimiento de Fallas</a></li>
           <li><a href="#Configuraciones">Configuraciones</a></li>
         </ul>
     </nav>
     <div class="title">
-
+        <h3 class='title-separator'>Inventario</h3>
     </div>
     <div class="table-container2">
         <table>
@@ -89,6 +106,28 @@
                 </tr>
               </form>
       --> 
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <div class="title">
+        <h3 class='title-separator'>Prestadores</h3>
+    </div>
+    <div class="table-container2">
+        <table>
+            <thead>
+                <th class="borders-table-align">Nombre del prestador</th>
+                <th class="borders-table-align">Cantidad prestada</th>
+                <th class="borders-table-align">Nombre del dispositivo</th>
+                <th colspan="2" class="borders-table-align">
+                </th>
+            </thead>
+            <tbody>
+              <?php
+                include_once("sql/sqlQuery.php");
+                $op=new SQLModel();
+                $op->getList2();
+              ?>
             </tbody>
         </table>
     </div>
