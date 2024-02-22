@@ -39,7 +39,7 @@
   <main class="container">
 
     <aside class="aside">
-      <form enctype="multipart/form-data" method="post" class="form">
+      <form enctype="multipart/form-data" method="post" class="form" accept-charset="UTF-8">>
         <legend class=form__legend>Agregar un nuevo registro</legend>
         <div class="field">
           <label for="input-name" class="ha-screen-reader">Nombre</label>
