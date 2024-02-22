@@ -67,10 +67,10 @@
   
     <nav>
         <ul>
-          <li><a href="#network">Localizar Dispositivos</a></li>
+          <li><a href="../Localizacion-Dispositivos/Dispositivos.html">Localizar Dispositivos</a></li>
           <li><a href="inventarioG.php">Inventario</a></li>
-          <li><a href="#Prevención">Planes de Prevención</a></li>
-          <li><a href="#Fallas">Seguimiento de Fallas</a></li>
+          <li><a href="../planes/planes.php">Planes de Prevención</a></li>
+          <li><a href="../seguimiento_Fallas/Fallas_main.php">Seguimiento de Fallas</a></li>
           <li><a href="#Configuraciones">Configuraciones</a></li>
         </ul>
     </nav>

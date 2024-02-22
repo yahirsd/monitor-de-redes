@@ -45,11 +45,11 @@
             if($prod!=$prodO){
                 $total=$canti2;
                 $total2=$canti3+$cantiO;
-                $query2="UPDATE inventario SET cantidad='$total2' WHERE id_inventario='$prodO'";
-                $result2=$this->conn->query($query2);
                 if($total<$canti){
                     return "amount";
                 }
+                $query2="UPDATE inventario SET cantidad='$total2' WHERE id_inventario='$prodO'";
+                $result2=$this->conn->query($query2);
                 $total=$total-$canti;
                 $query3="UPDATE inventario SET cantidad='$total' WHERE id_inventario='$prod'";
                 $result3=$this->conn->query($query3);
