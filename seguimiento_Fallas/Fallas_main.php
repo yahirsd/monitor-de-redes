@@ -12,7 +12,22 @@
     <?php
     include('../db/conection.php');
     ?>
-    <!--cd-->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar</h2>
+            <form action="./update.php" method="get"></form>
+            <label for="editar-nombre">Nombre</label>
+            <input type="text" id="editar-nombre" name="editar-nombre" />
+
+            <label for="editar-descripcion">Descripcion</label>
+            <input type="text" id="editar-descripcion" name="editar-descripcion" />
+
+            <button id="button_Editar" type="submit">editar</button>
+        </div>
+    </div>
+
     <header class="encabezado">
 
         <nav>
@@ -23,7 +38,7 @@
                 <li><a href="../Redes-Inventario/">Inventario</a></li>
                 <li><a href="../planes/">Planes de Prevención</a></li>
                 <li><a href="../seguimiento_Fallas/">Seguimiento de Fallas </a></li>
-                <li><a href="#report">Configuraciones</a></li>
+
             </ul>
         </nav>
 
@@ -59,15 +74,13 @@
                     while ($fila = $resultado->fetch_assoc()) {
                         echo "<p>ID: " . $fila["id"] . " - Nombre: " . $fila["nombre"] . " - Descripción: " . $fila["descripcion"] . " - Estado: " . ($fila["estado"] ? "Activo" : "Inactivo");
                         echo "<button class='btn-eliminar btn eliminar' eliminar='./delete.php?id={$fila["id"]}'>Eliminar</button>";
-                        echo "<button editar='' class='btn-editar btn'>editar</button>";
+                        echo "<button id='{$fila["id"]}' nombre='{$fila["nombre"]}' descripcion='{$fila["descripcion"]}' class='btn-editar btn'>editar</button>";
                         echo "</p>";
                         echo "<hr>";
                     }
                 } else {
                     echo "No se encontraron resultados en la tabla 'tabla_falllas'.";
                 }
-
-               
                 
                 ?>
             </div>
@@ -97,27 +110,75 @@
         } else {
             echo "Error al preparar la consulta: " . $conexion->error;
         }
-
         header("Location: ./Fallas_main.php");
+        
         // Cierra la conexión al finalizar
         $conexion->close();
+        
     }
-
+    
     ?>
 
-<script>
-  const linkDelete = document.querySelectorAll(".eliminar");
-  linkDelete.forEach(element =>{ 
-    element.addEventListener("click",event => {
-      event.defaultPrevented;
-      if(confirm("Estas Seguro de que deseas eliminar este archivo?")){
-       window.location.href = element.getAttribute("eliminar");
-      }else{
+    <script>
+        var id;
+        var nombre;
+        var descripcion;
 
-      }
-    });
-  });
-</script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        const input_editar_nombre = document.getElementById("editar-nombre");
+        const input_editar_descripcion = document.getElementById("editar-descripcion");
+
+        const linkDelete = document.querySelectorAll(".eliminar");
+        linkDelete.forEach(element => {
+            element.addEventListener("click", event => {
+                event.defaultPrevented;
+                if (confirm("¿Estas seguro que deseas eliminar este registro?")) {
+                    window.location.href = element.getAttribute("eliminar");
+                } else {
+
+                }
+            });
+        });
+
+
+        const buttonEdit = document.querySelectorAll(".btn-editar");
+
+        buttonEdit.forEach(element => {
+            element.addEventListener("click", event => {
+                modal.style.display = "block";
+                input_editar_nombre.value = element.getAttribute("nombre");
+                input_editar_descripcion.value = element.getAttribute("descripcion");
+
+                id = element.getAttribute("id");
+                nombre = element.getAttribute("nombre");
+                descripcion = element.getAttribute("descripcion");
+
+            });
+        });
+
+        const buttonUpdate = document.getElementById('button_Editar');
+        buttonUpdate.addEventListener("click", event => {
+            nombre = input_editar_nombre.value;
+            descripcion = input_editar_descripcion.value;
+            window.location.href = "./update.php?id=" + id + "&nombre=" + nombre + "&descripcion=" + descripcion;
+        });
+
+
+        // Cuando se haga clic en (x), cerrar el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cuando se haga clic fuera del modal, cerrarlo
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
